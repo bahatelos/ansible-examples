@@ -8,9 +8,11 @@
   - group_vars/all
 
   tasks:
-  -name Install boto3 (ec2 dependency)
-    name: boto3
-    extra_args: --user
+  - name: Install boto3 (ec2 dependency)
+    pip:
+      name: boto3
+      extra_args: --user
+
   - name: Launch webserver instances
     ec2: >
      access_key="{{ ec2_access_key }}"
